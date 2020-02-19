@@ -1,3 +1,8 @@
 <component name="ProjectDictionaryState">
-  <dictionary name="johnnydiaz" />
+  <dictionary name="johnnydiaz">
+    <words>
+      <w>keydown</w>
+      <w>keyup</w>
+    </words>
+  </dictionary>
 </component>
