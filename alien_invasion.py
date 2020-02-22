@@ -23,7 +23,7 @@ class AlienInvasion:
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
-        self.alien = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
 
         self._create_fleet()
 
@@ -33,6 +33,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self.update_bullets()
+            self._update_aliens()
             self._update_screen()
 
     def _check_events(self):
@@ -80,6 +81,10 @@ class AlienInvasion:
                 self.bullets.remove(bullet)
         # print(len(self.bullets))
 
+    def _update_aliens(self):
+        """Update the positions of all aliens in the fleet."""
+        self.aliens.update()
+
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Create an alien and find the number of aliens in a row.
@@ -108,7 +113,7 @@ class AlienInvasion:
         alien.x = alien_width + 2 * alien_width * alien_number
         alien.rect.x = alien.x
         alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
-        self.alien.add(alien)
+        self.aliens.add(alien)
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
@@ -117,7 +122,7 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
 
-        self.alien.draw(self.screen)
+        self.aliens.draw(self.screen)
         # Make the most recently drawn screen visible.
         pygame.display.flip()
 
