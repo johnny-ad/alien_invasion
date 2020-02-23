@@ -8,8 +8,9 @@ class Settings:
         self.screen_height = 750
         self.bg_color = (230, 230, 230)
 
-        # Ship's speed
+        # Ship's Settings
         self.ship_speed = 1.5
+        self.ship_limit = 3
 
         # Alien's speed
         self.alien_speed = 0.25
